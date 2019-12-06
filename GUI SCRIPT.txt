@@ -1,0 +1,192 @@
+import tkinter
+from tkinter import *
+from tkinter import ttk
+from tkinter.ttk import Style
+
+style = Style()
+Main_Window = Tk()
+Main_Window.title("SUIVI VOTRE GROSSESSE")
+Main_Window.geometry("1080x720")
+Main_Window.config(background='#41B77F')
+Lable1 = Label(Main_Window, text="Bienvenu pour suiver votre grossesse", fg="red", bg='#41B77F',
+               font=("Times", 40)).place(x=20, y=20)
+LabeleTS = Label(Main_Window, text="tension systolique : ")
+LabeleTS.place(x=50, y=240)
+labelzR3 = Label(Main_Window, text="Controler votre Tension", font="Helvetica 20 bold italic", bg="gray", fg='white')
+labelzR3.place(x=50, y=170)
+labelzR3P = Label(Main_Window, text="Suivi votre grossese", font="Helvetica 20 bold italic", bg="gray", fg='white')
+labelzR3P.place(x=650, y=170)
+labelz3 = Label(Main_Window, font="Helvetica 10 bold italic", bg="#41B77F", fg='white')
+labelz3.place(x=30, y=480)
+
+labelz3l = Label(Main_Window, font="Helvetica 10 bold italic", bg="#41B77F", fg='white')
+labelz3l.place(x=900, y=480)
+labelz3O = Label(Main_Window, text="date accouchement", font="Helvetica 10 bold italic", bg="blue", fg='white')
+labelz3O.place(x=700, y=480)
+
+labelz3O13 = Label(Main_Window, text="date 1er RDV", font="Helvetica 10 bold italic", bg="blue", fg='white')
+labelz3O13.place(x=700, y=520)
+labelz3O24 = Label(Main_Window, text="date 2eme RDV", font="Helvetica 10 bold italic", bg="blue", fg='white')
+labelz3O24.place(x=700, y=560)
+labelz3O45 = Label(Main_Window, text="date 3eme RDV", font="Helvetica 10 bold italic", bg="blue", fg='white')
+labelz3O45.place(x=700, y=600)
+labelz3O56 = Label(Main_Window, text="date 4eme RDV", font="Helvetica 10 bold italic", bg="blue", fg='white')
+labelz3O56.place(x=700, y=640)
+
+labelz3lH = Label(Main_Window, font="Helvetica 10 bold italic", bg="#41B77F", fg='white')
+labelz3lH.place(x=900, y=520)
+labelz3lH2 = Label(Main_Window, font="Helvetica 10 bold italic", bg="#41B77F", fg='white')
+labelz3lH2.place(x=900, y=560)
+
+labelz3lH13 = Label(Main_Window, font="Helvetica 10 bold italic", bg="#41B77F", fg='white')
+labelz3lH13.place(x=900, y=600)
+labelz3lH22 = Label(Main_Window, font="Helvetica 10 bold italic", bg="#41B77F", fg='white')
+labelz3lH22.place(x=900, y=640)
+
+TS = StringVar()
+entryTS = Entry(Main_Window, textvariable=TS)
+entryTS.place(x=200, y=240)
+Ts = entryTS.get()
+
+LabeleTD = tkinter.Label(Main_Window, text="tension diastolique : ", )
+LabeleTD.place(x=50, y=300)
+
+TD = StringVar()
+entryTD = Entry(Main_Window, textvariable=TD)
+entryTD.place(x=200, y=300)
+
+Td = entryTD.get()
+
+LabeleTR = tkinter.Label(Main_Window, text="trimèstre : ")
+LabeleTR.place(x=50, y=360)
+
+TR = StringVar()
+entryTR = Entry(Main_Window, textvariable=TR)
+entryTR.place(x=200, y=360)
+
+Tr = entryTR.get()
+
+
+def RESULTATNtension():
+    a = '60'
+    b = '90'
+    c = '140'
+    d = '3'
+    if 90 <= int(entryTS.get()) <= 120:
+        if 60 <= int(entryTD.get()) <= 90:
+            labelz3.config(text='votre tension artérielle est normale', bg='Green', fg='white')
+    elif int(entryTS.get()) >= 120:
+        if int(entryTD.get()) >= 90:
+            labelz3.config(text='HYPER', bg='Green', fg='white')
+    elif int(entryTS.get()) <= 90:
+        if int(entryTD.get()) <= 60:
+            if int(entryTR.get()) <= 3:
+                labelz3.config(text="Ne vous inquiétez pas, cela est normal.\n Au cours du premier trimestre, la pression\n "
+                        "artérielle a tendance à diminuer naturellement\n chez la femme enceinte. En effet, \nle système "
+                        "circulatoire est pleinement dirigé vers le \nplacenta et le fœtus tandis que les modifications \n"
+                        "hormonales importantes à ce stade provoquent\n une dilatation des artères et des veines.\n "
+                        "Résultats : la tension baisse\n légèrement.Cela peut ainsi expliquer\n la sensation de vertiges "
+                        "ou d étourdissements,\n une fatigue accrue,une pâleur du visage", bg='Green', fg='white')
+            elif int(entryTR.get()) >= 3:
+                labelz3.config(text='Hypotension', bg='Green', fg='white')
+
+
+BOT2 = Button(Main_Window, text="Resultat", width=40, command=RESULTATNtension)
+BOT2.place(x=70, y=420)
+
+LabeleDR = tkinter.Label(Main_Window, text="jour des dernieres règles : ")
+LabeleDR.place(x=650, y=240)
+
+Jrs = StringVar()
+entryDR = ttk.Entry(Main_Window, textvariable=Jrs)
+entryDR.place(x=850, y=240)
+DR = entryDR.get()
+
+LabeleMO = tkinter.Label(Main_Window, text="quel mois? : ")
+LabeleMO.place(x=650, y=300)
+
+input_text = StringVar()
+entryMO = ttk.Entry(Main_Window, textvariable=input_text)
+entryMO.place(x=850, y=300)
+MO = entryMO.get()
+
+LabeleAN = tkinter.Label(Main_Window, text="quelle années? : ")
+LabeleAN.place(x=650, y=360)
+
+input_text = StringVar()
+entryAN = ttk.Entry(Main_Window, textvariable=input_text)
+entryAN.place(x=850, y=360)
+
+AN = entryAN.get()
+
+
+def RESULTACC():
+    a1 = int(entryDR.get()) + 14
+    b1 = int(entryMO.get()) + 9
+    c1 = int(entryAN.get()) + 1
+
+    if a1 > 30:
+        b1 = b1 + 1
+        a1 = a1 - 30
+        if b1 > 12:
+            c1 = c1 + 1
+            b1 = b1 - 30
+    h = str(a1)
+    d = str(b1)
+    t = str(c1)
+    z1 = (h + "//" + d + "//" + t)
+    labelz3l.config(text=z1, bg='Green', fg='white')
+
+    b2 = int(entryMO.get()) + 3
+    a2 = int(entryDR.get())
+    c2 = int(entryAN.get())
+    if b2 > 12:
+        c2 = c2 + 1
+        b2 = b2 - 13
+    h2 = str(a2)
+    d2 = str(b2)
+    t2 = str(c2)
+    z2 = (h2 + "//" + d2 + "//" + t2)
+    labelz3lH.config(text=z2, bg='Green', fg='white')
+
+    b3 = int(entryMO.get()) + 6
+    a3 = int(entryDR.get())
+    c3 = int(entryAN.get())
+    if b3 > 12:
+        c3 = c3 + 1
+        b3 = b3 - 13
+    h3 = str(a3)
+    d3 = str(b3)
+    t3 = str(c3)
+    z3 = (h3 + "//" + d3 + "//" + t3)
+    labelz3lH2.config(text=z3, bg='Green', fg='white')
+
+    b4 = int(entryMO.get()) + 8
+    a4 = int(entryDR.get())
+    c4 = int(entryAN.get())
+    if b4 > 12:
+        c4 = c4 + 1
+        b4 = b4 - 13
+    h4 = str(a4)
+    d4 = str(b4)
+    t4 = str(c4)
+    z4 = (h4 + "//" + d4 + "//" + t4)
+    labelz3lH13.config(text=z4, bg='Green', fg='white')
+
+    b5 = int(entryMO.get()) + 9
+    a5 = int(entryDR.get())
+    c5 = int(entryAN.get())
+    if b5 > 12:
+        c5 = c5 + 1
+        b5 = b5 - 13
+    h5 = str(a5)
+    d5 = str(b5)
+    t5 = str(c5)
+    z5 = (h5 + "//" + d5 + "//" + t5)
+    labelz3lH22.config(text=z5, bg='Green', fg='white')
+
+
+BOT1 = Button(Main_Window, text="RDV & Date d'accouchement", width=40, command=RESULTACC)
+BOT1.place(x=680, y=420)
+
+Main_Window.mainloop()
